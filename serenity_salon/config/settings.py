@@ -1,3 +1,4 @@
+import os
 """
 Django settings for config project.
 
@@ -111,7 +112,12 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/6.0/howto/static-files/
+# Статика
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'salon/static'),
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATIC_URL = 'static/'
+# Для отладки — разрешаем все хосты
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
